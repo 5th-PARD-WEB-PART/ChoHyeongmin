@@ -1,0 +1,67 @@
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.profileImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.profileImage:hover {
+  transform: scale(1.05);
+}
+
+/* 자기소개 글 */
+.intro {
+  position: absolute;
+  left: 10%;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* TMI 글 */
+.tmi {
+  position: absolute;
+  right: 10%;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease-in-out;
+}
+.inlineContainer {
+  display: flex;  /* 가로 정렬 */
+  align-items: center; /* 이미지와 텍스트 수직 정렬 */
+  gap: 8px; /* 로고와 텍스트 사이 간격 */
+  white-space: nowrap; /* 줄 바꿈 방지 */
+}
+
+.logo {
+  width: 20px; /* 로고 크기 */
+  height: 20px;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 16px;
+  vertical-align: middle; /* 텍스트 정렬 */
+}

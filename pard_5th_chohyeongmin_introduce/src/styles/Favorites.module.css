@@ -1,0 +1,50 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2열 */
+    grid-template-rows: repeat(2, 1fr); /* 2행 */
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    margin: 160px auto 0 auto; /* 🎯 Layout과 겹치지 않도록 위쪽 여백 추가 */
+  }
+  
+  .favorites {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 칸을 꽉 채우도록 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0.8; /* 이미지 살짝 투명하게 */
+  }
+  
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* 어두운 오버레이 추가 */
+    z-index: 1;
+  }
+  
+  .text {
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    z-index: 2;
+  }
+  
