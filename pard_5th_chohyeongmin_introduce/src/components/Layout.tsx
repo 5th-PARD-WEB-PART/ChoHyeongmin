@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <>
+    <> 
       <header className={styles.header}>
         <div className={styles.logoContainer}>
           <img src="/5.webp" alt="로고" className={styles.logo} />

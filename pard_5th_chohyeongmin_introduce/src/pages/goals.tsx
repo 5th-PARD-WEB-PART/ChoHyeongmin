@@ -13,7 +13,7 @@ export default function Goals() {
         <img src="/2.jpeg" alt="After" className={styles.image} />
         <h2>After</h2>
         <p>1. 깃 허브를 내 얼굴 😎 같이 아름 답게 Sexy Web~ <br />2. 웹 개발 경력(대회 수상?)<br />3. 여러 파트의 사람들과 관계형성 및 협업능력 향상<br />4. 웹 개발에 더욱 친숙해지기(🕹️장난감 다루듯!)</p>
-      </div>
+      </div> 
     </div>
   );
 }

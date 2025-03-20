@@ -28,7 +28,7 @@ export default function About() {
       {showIntro && (
         <div className={styles.intro} onClick={handleIntroClick}>
           <p>안녕하세요! 제 이름은 [조형민]입니다. 👋<br /> PARD-Y 5기 [웹파트]를 담당하고 있습니다 <br />Sexy Web~ 😎</p>
-        </div>
+        </div> 
       )}
 
       {/* TMI 글 */}

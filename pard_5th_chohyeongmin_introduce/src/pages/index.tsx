@@ -15,7 +15,7 @@ export default function Home() {
             className={styles.image}
           />
         </div>
-
+ 
         {/* 오른쪽: 텍스트 */}
         <div className={styles.textContainer}>
           <h1 className={styles.title}>Mini`s Profile</h1>

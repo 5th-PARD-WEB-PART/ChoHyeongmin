@@ -12,5 +12,5 @@
 5. goals.tsx를 통해 첫 세미나에서 나눴던 before와 after을 통해 목표를 보여줌
 6. favorite.tsx를 통해 좋아하는 리스트를 나열했음
 
-module.css 파일로 각각의 페이지를 꾸며줌
+module.css 파일로 각각의 페이지를 꾸며줌 
 public폴더로 사진들을 첨부하여 페이지에 넣어줌 
