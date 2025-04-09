@@ -1,7 +1,45 @@
-import Sidebar from "../../../src/components/Sidebar"; // 상대 경로로 수정!
+import { useState } from "react";
+import Sidebar from "../../../src/components/Sidebar";
+import PostGallery from "../../components/PostGallery";
+import PostModal from "../../components/PostModal";
 import styles from "../../styles/Mypage.module.css";
 
 export default function MyPage() {
+  const [likes, setLikes] = useState([
+    { liked: false, count: 701 },
+    { liked: false, count: 704 },
+    { liked: false, count: 708 },
+    { liked: false, count: 712 },
+    { liked: false, count: 715 },
+    { liked: false, count: 717 },
+    { liked: false, count: 719 },
+    { liked: false, count: 722 },
+    { liked: false, count: 726 },
+  ]);
+
+  const [selectedPost, setSelectedPost] = useState<{
+    path: string;
+    index: number;
+  } | null>(null);
+
+  const openModal = (path: string, index: number) => {
+    setSelectedPost({ path, index });
+  };
+
+  const closeModal = () => setSelectedPost(null);
+
+  const handleLike = (index: number) => {
+    setLikes((prev) => {
+      const updated = [...prev];
+      const item = updated[index];
+      updated[index] = {
+        liked: !item.liked,
+        count: item.liked ? item.count - 1 : item.count + 1,
+      };
+      return updated;
+    });
+  };
+
   return (
     <div className={styles.pageWrapper}>
       <Sidebar />
@@ -14,80 +52,25 @@ export default function MyPage() {
               <button className={styles.editButton}>프로필 편집</button>
             </div>
             <div className={styles.userStats}>
-              <span>게시물 0</span>
-              <span>팔로워 0</span>
-              <span>팔로우 0</span>
+              <span>게시물 9</span>
+              <span>팔로워 235</span>
+              <span>팔로우 240</span>
             </div>
           </div>
         </div>
 
-        {/* 📷 게시물 갤러리 */}
-        <div className={styles.gallery}>
-          <div className={styles.postBox}>
-            <img src="/1.jpeg" alt="post1" className={styles.postImage} />
-            <div className={styles.overlay}>
-              <img src="/hover.png" /><span>110만</span>
-              <img src="/comment.png" /><span>110만</span>
-            </div>
-          </div>
-          <div className={styles.postBox}>
-            <img src="/2.jpeg" alt="post2" className={styles.postImage} />
-            <div className={styles.overlay}>
-              <img src="/hover.png" /><span>110만</span>
-              <img src="/comment.png" /><span>110만</span>
-            </div>
-          </div>
-          <div className={styles.postBox}>
-            <img src="/3.jpeg" alt="post3" className={styles.postImage} />
-            <div className={styles.overlay}>
-              <img src="/hover.png" /><span>110만</span>
-              <img src="/comment.png" /><span>110만</span>
-            </div>
-          </div>
-          <div className={styles.postBox}>
-            <img src="/4.jpeg" alt="post4" className={styles.postImage} />
-            <div className={styles.overlay}>
-              <img src="/hover.png" /><span>110만</span>
-              <img src="/comment.png" /><span>110만</span>
-            </div>
-          </div>
-          <div className={styles.postBox}>
-            <img src="/5.jpeg" alt="post5" className={styles.postImage} />
-            <div className={styles.overlay}>
-            <img src="/hover.png" /><span>110만</span>
-            <img src="/comment.png" /><span>110만</span>
-            </div>
-          </div>
-          <div className={styles.postBox}>
-            <img src="/6.jpeg" alt="post6" className={styles.postImage} />
-            <div className={styles.overlay}>
-              <img src="/hover.png" /><span>110만</span>
-              <img src="/comment.png" /><span>110만</span>  
-            </div>
-          </div>
-          <div className={styles.postBox}>
-            <img src="/7.jpeg" alt="post7" className={styles.postImage} />
-            <div className={styles.overlay}>
-              <img src="/hover.png" /><span>110만</span>
-              <img src="/comment.png" /><span>110만</span>
-            </div>
-          </div>
-          <div className={styles.postBox}>
-            <img src="/8.jpeg" alt="post8" className={styles.postImage} />
-            <div className={styles.overlay}>
-              <img src="/hover.png" /><span>110만</span>
-              <img src="/comment.png" /><span>110만</span>
-            </div>
-          </div>
-          <div className={styles.postBox}>
-            <img src="/9.jpeg" alt="post9" className={styles.postImage} />
-            <div className={styles.overlay}>
-              <img src="/hover.png" /><span>110만</span>
-              <img src="/comment.png" /><span>110만</span>
-            </div>
-          </div>
-          
-        </div>
+        <PostGallery likes={likes} onClick={openModal} />
+
+        {selectedPost && (
+          <PostModal
+            image={selectedPost.path}
+            index={selectedPost.index}
+            liked={likes[selectedPost.index].liked}
+            count={likes[selectedPost.index].count}
+            onLike={() => handleLike(selectedPost.index)}
+            onClose={closeModal}
+          />
+        )}
       </div>
     </div>
   );
