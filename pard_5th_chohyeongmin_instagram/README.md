@@ -194,16 +194,22 @@
 
 
 📸 **페이지 미리보기**  
+
 -가입 페이지에서 사용자 이름 입력후 가입 클릭시 -> mypage변화
+
 <img src="./public/4_1.png" width="400"/>
 <img src="./public/4_2.png" width="400"/>
 
+
 -프로필 편집 클릭시 InfoEditPage로 이동 & 제출 클릭시 -> mypage변화
+
 <img src="./public/4_3.png" width="400"/>
 <img src="./public/4_4.png" width="400"/>
 <img src="./public/4_5.png" width="400"/>
 
+
 -반응형 웹페이지!
+
 <img src="./public/4_5.png" width="400"/>
 <img src="./public/4_6.png" width="400"/>
 <img src="./public/4_7.png" width="400"/>
