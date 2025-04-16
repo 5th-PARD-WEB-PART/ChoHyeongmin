@@ -95,3 +95,25 @@
     text-decoration: none;
   }
   
+  .form input {
+    font-family: Inter;
+    padding: 10px;
+    background-color: black;
+    border: 1px solid #EAEAEA;
+    color: #747474;
+    font-size: 11px;
+    border-radius: 1px;
+  }
+  
+  .form button {
+    font-family: Inter;
+    font-size: 13px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #7CBDFF;
+    color: #FEFFFF;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  

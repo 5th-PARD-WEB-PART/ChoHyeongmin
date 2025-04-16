@@ -1,10 +1,15 @@
 import { useState } from "react";
-import Sidebar from "../../../src/components/Sidebar";
+import { useRouter } from "next/router"; // ✅ 라우터 import
+import Sidebar from "../../components/Sidebar";
 import PostGallery from "../../components/PostGallery";
 import PostModal from "../../components/PostModal";
 import styles from "../../styles/Mypage.module.css";
+import { useUserStore } from "../../store/userStore";
 
 export default function MyPage() {
+  const nickname = useUserStore((state) => state.nickname);
+  const router = useRouter(); // ✅ 라우터 훅 사용
+
   const [likes, setLikes] = useState([
     { liked: false, count: 701 },
     { liked: false, count: 704 },
@@ -40,16 +45,28 @@ export default function MyPage() {
     });
   };
 
+  const goToEditPage = () => {
+    router.push("/mypage/InfoEditPage");
+  };
+
   return (
     <div className={styles.pageWrapper}>
       <Sidebar />
       <div className={styles.content}>
         <div className={styles.profileHeader}>
-          <img src="/Profile.jpeg" className={styles.avatar} alt="유저 아바타" />
+          <img
+            src="/Profile.jpeg"
+            className={styles.avatar}
+            alt="유저 아바타"
+          />
           <div className={styles.profileInfo}>
             <div className={styles.usernameRow}>
-              <span className={styles.username}>h._.m1225</span>
-              <button className={styles.editButton}>프로필 편집</button>
+              <span className={styles.username}>{nickname}</span>
+
+              {/* ✅ 수정된 버튼 */}
+              <button className={styles.editButton} onClick={goToEditPage}>
+                프로필 편집
+              </button>
             </div>
             <div className={styles.userStats}>
               <span>게시물 9</span>
